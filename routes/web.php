@@ -5,7 +5,7 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
 Route::get('/', function () {
-    return view('welcome');
+   return redirect()->route('dashboard');
 })->name('home');
 
 Route::view('dashboard', 'dashboard')
@@ -14,6 +14,10 @@ Route::view('dashboard', 'dashboard')
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
+
+    Route::get("/laws", \App\Livewire\App\LawOverview::class)->name("laws");
+    Route::get("/law/{law}", \App\Livewire\App\LawEditor::class)->name("law");
+    Route::get("/allegations", \App\Livewire\App\Allegations::class)->name("allegations");
 
     Volt::route('settings/profile', 'settings.profile')->name('profile.edit');
     Volt::route('settings/password', 'settings.password')->name('password.edit');
