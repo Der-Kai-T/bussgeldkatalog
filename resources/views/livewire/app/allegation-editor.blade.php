@@ -87,7 +87,7 @@
                              "
                     >
                         <span class="fas fa-times"></span>
-                        Abort
+                        {{ __("Abort") }}
                     </a>
 
                 </form>

@@ -21,5 +21,5 @@
                  "
 >
     <i class="fas fa-save"></i>
-    Save
+    {{ __("Save") }}
 </button>

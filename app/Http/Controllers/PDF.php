@@ -94,6 +94,6 @@ class PDF extends Controller
 
         }
 
-        $pdf->Output("test.pdf", "I");
+        $pdf->Output("bussgeldkatalog.pdf", "D");
     }
 }

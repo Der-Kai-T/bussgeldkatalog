@@ -61,5 +61,25 @@
     "Laws": "Gesetze",
     "Dashboard": "Dashboard",
     "Settings": "Einstellungen",
-    "Log Out": "Abmelden"
+    "Log Out": "Abmelden",
+    "Configuration": "Konfigurationen",
+    "Catalogue": "Katalog erzeugen (pdf)",
+    "name": "Name",
+    "short": "Kurzbezeichnung",
+    "prefix": "Prefix",
+    "department": "Fachamt",
+    "lead_office": "Federführendes Amt",
+    "Save": "Speichern",
+    "Abort": "Abbrechen",
+    "number": "Nummer",
+    "quote": "Zitat, Rechtsgrundlage",
+    "text": "Text",
+    "fine_regular": "Regelsatz",
+    "fine_min": "Bußgeldrahmen min",
+    "fine_max": "Bußgeldrahmen max",
+    "legal_maximum": "gesetzlicher Höchstbetrag",
+    "valid_from": "Gültig ab",
+    "valid_until": "Gültig bis"
+
+
 }

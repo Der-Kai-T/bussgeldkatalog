@@ -17,7 +17,8 @@
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                     <flux:navlist.item icon="circle-stack" :href="route('laws')" :current="request()->routeIs('laws')" wire:navigate>{{ __('Laws') }}</flux:navlist.item>
                     <flux:navlist.item icon="circle-stack" :href="route('allegations')" :current="request()->routeIs('allegations')" wire:navigate>{{ __('Allegations') }}</flux:navlist.item>
-                    <flux:navlist.item icon="circle-stack" :href="route('configurations')" :current="request()->routeIs('configurations')" wire:navigate>{{ __('Configuration') }}</flux:navlist.item>
+                    <flux:navlist.item icon="wrench" :href="route('configurations')" :current="request()->routeIs('configurations')" wire:navigate>{{ __('Configuration') }}</flux:navlist.item>
+                    <flux:navlist.item icon="document" :href="route('catalogue')" :current="request()->routeIs('catalogue')" >{{ __('Catalogue') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
