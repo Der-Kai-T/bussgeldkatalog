@@ -18,6 +18,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/laws", \App\Livewire\App\LawOverview::class)->name("laws");
     Route::get("/law/{law}", \App\Livewire\App\LawEditor::class)->name("law");
     Route::get("/allegations", \App\Livewire\App\Allegations::class)->name("allegations");
+    Route::get("/allegation/{allegation}", \App\Livewire\App\AllegationEditor::class)->name("allegation");
+    Route::get("/configurations", \App\Livewire\App\ConfigurationEditor::class)->name("configurations");
+
+    Route::get("/catalogue", [\App\Http\Controllers\PDF::class, "generate"])->name("catalogue");
+
 
     Volt::route('settings/profile', 'settings.profile')->name('profile.edit');
     Volt::route('settings/password', 'settings.password')->name('password.edit');

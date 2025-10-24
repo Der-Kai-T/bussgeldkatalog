@@ -1,8 +1,7 @@
-<div class=" ">
-    <div>
-        <button
-            type="submit"
-            class="
+<button
+    type="submit"
+    class="
+            float-end
                 text-white
                 bg-blue-700
                 hover:bg-blue-800
@@ -20,9 +19,7 @@
                  dark:hover:bg-blue-700
                  dark:focus:ring-blue-800
                  "
-        >
-<i class="fas fa-save"></i>
-            Save
-        </button>
-    </div>
-</div>
+>
+    <i class="fas fa-save"></i>
+    Save
+</button>

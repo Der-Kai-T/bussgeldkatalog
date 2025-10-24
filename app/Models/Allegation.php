@@ -19,6 +19,8 @@ class Allegation extends Model
     {
         return [
             'valid_from' => 'datetime',
+            'valid_until' => 'datetime',
+            'print' => 'bool',
         ];
     }
 }

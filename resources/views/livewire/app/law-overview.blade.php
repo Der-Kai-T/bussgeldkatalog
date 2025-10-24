@@ -29,7 +29,7 @@
                         </td>
                         <td>{{ $l->short }}</td>
                         <td>{{ $l->name }}</td>
-                        <td></td>
+                        <td>{{ $l->allegations->count() }}</td>
                     </tr>
                 @endforeach
 

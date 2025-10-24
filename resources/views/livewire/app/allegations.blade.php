@@ -35,7 +35,10 @@
                     @foreach($l->allegations as $a)
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200 align-text-top ">
                             <td>
-                                {{ $globalPrefix }}{{ $l->prefix }}{{ $a->number }}
+                                <a href="{{ route("allegation", $a->id) }}" wire:navigate class="text-blue-500 hover:text-green-500">
+                                    {{ $globalPrefix }}{{ $l->prefix }}{{ $a->number }}
+                                </a>
+
 
                             </td>
                             <td>

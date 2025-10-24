@@ -40,12 +40,16 @@
                 </form>
             </div>
             <div>
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-200">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-200 sticky top-0">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-200" style="margin-top: 3rem">
+                    <thead
+                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-200 sticky top-0">
                     <tr class="sticky top-0">
                         <th class="sticky top-0 ">TB-Nummer</th>
                         <th class="sticky top-0 ">Text</th>
-                        <th class="sticky top-0 text-end">Kosten</th>
+                        <th class="sticky top-0 "></th>
+                        <th class="sticky top-0 text-end">Regelsatz</th>
+                        <th class="sticky top-0 text-end">Rahmen</th>
+                        <th class="sticky top-0 text-end">gesetzl. Maximum</th>
 
                     </tr>
                     </thead>
@@ -53,8 +57,9 @@
                     @foreach($law->allegations->sortBy("number") as $a)
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200 align-text-top ">
                             <td>
-                                {{ $globalPrefix }}{{ $law->prefix }}{{ $a->number }}
-
+                                <a href="{{ route("allegation", $a->id) }}" wire:navigate class="text-blue-500 hover:text-green-500">
+                                    {{ $globalPrefix }}{{ $law->prefix }}{{ $a->number }}
+                                </a>
                             </td>
                             <td>
                                 {{ $a->text }}<br>
@@ -64,25 +69,33 @@
                                     {{ $a->quote }}
                                 </small>
                             </td>
+                            <td>
+                                @if($a->print)
+                                    <span class="fas fa-print"></span>
+                                @else
+                                    <span class="fa-layers fa-fw">
+                                    <i class="fas fa-print text-gray-500"></i>
+                                    <i class="fas fa-slash text-red-500 font-bold"></i>
+                                    </span>
+                                @endif
+                            </td>
                             <td class="text-end">
                                 @if(!empty($a->fine_regular))
                                     {{ number_format($a->fine_regular, 2,",",".") }} €
                                 @endif
-
-                                @if(!empty($a->fine_regular) && (!empty($a->fine_min) || !empty($a->fine_max)))
-                                    <br>
-                                @endif
-
-                                @if(!empty($a->fine_min) || !empty($a->fine_max))
-                                    Rahmen:
-                                @endif
-
+                            </td>
+                            <td class="text-end">
                                 @if(!empty($a->fine_min))
                                     {{ number_format($a->fine_min, 2, ",",".") }} €
                                 @endif
 
                                 @if(!empty($a->fine_max))
                                     bis {{ number_format($a->fine_max, 2, ",",".") }} €
+                                @endif
+                            </td>
+                            <td class="text-end">
+                                @if(!empty($a->legal_maximum))
+                                    {{ number_format($a->legal_maximum, 2, ",", ".") }} €
                                 @endif
                             </td>
                         </tr>
