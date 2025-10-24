@@ -9,6 +9,7 @@ class Allegation extends Model
 {
     use HasUuids;
 
+    protected $guarded = ["id", "created_at", "updated_at"];
     public function law()
     {
         return $this->belongsTo(Law::class);
@@ -18,6 +19,8 @@ class Allegation extends Model
     {
         return [
             'valid_from' => 'datetime',
+            'valid_until' => 'datetime',
+            'print' => 'bool',
         ];
     }
 }

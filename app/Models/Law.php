@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Law extends Model
 {
     use HasUuids;
+    protected $guarded = ["id", "created_at", "updated_at"];
 
+    public $with = ["allegations"];
     protected function casts()
     {
         return [
@@ -18,7 +20,7 @@ class Law extends Model
         ];
     }
 
-    protected function allegations(): HasMany
+    public function allegations(): HasMany
     {
         return $this->HasMany(Allegation::class);
     }

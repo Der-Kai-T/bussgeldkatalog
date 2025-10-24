@@ -9,7 +9,8 @@ return new class extends Migration {
     {
         Schema::create('allegations', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('law_id')->constrained('laws');
+            $table->foreignUuid('law_id')->constrained('laws');
+            $table->text("number");
             $table->text('text');
             $table->string('quote');
             $table->decimal('fine_regular')->nullable();
