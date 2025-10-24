@@ -30,10 +30,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make($password),
         ]);
 
+        echo "Password: $password\n";
         $this->call([
             ConfigurationSeeder::class,
-            AllegationSeeder::class,
             LawSeeder::class,
+            AllegationSeeder::class,
         ]);
     }
 }
