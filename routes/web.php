@@ -8,12 +8,14 @@ Route::get('/', function () {
    return redirect()->route('dashboard');
 })->name('home');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+//Route::view('dashboard', 'dashboard')
+//    ->middleware(['auth', 'verified'])
+//    ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
+
+    Route::get("/dashboard", \App\Livewire\App\Dashboard::class)->name("dashboard");
 
     Route::get("/laws", \App\Livewire\App\LawOverview::class)->name("laws");
     Route::get("/law-create", \App\Livewire\App\LawCreate::class)->name("law-create");
