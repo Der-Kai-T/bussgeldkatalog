@@ -17,6 +17,9 @@ class LawEditor extends Component
     public $editing = true;
 
     public LawForm $form;
+
+    public $legal_maximum_careless = 0;
+    public $legal_maximum_intention = 0;
     public function mount(Law $law)
     {
         $this->law = $law;
@@ -35,6 +38,12 @@ class LawEditor extends Component
     {
         $this->form->update();
         $this->law->refresh();
+    }
+
+    public function setAllLegalMaximum()
+    {
+        $this->law->allegations()->update(["legal_maximum_careless" => $this->legal_maximum_careless, "legal_maximum_intention" => $this->legal_maximum_intention]);
+        $this->mount($this->law);
     }
     public function render()
     {

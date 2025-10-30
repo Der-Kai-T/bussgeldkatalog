@@ -80,6 +80,48 @@
 
                 </form>
             </div>
+
+            <div class="mb-4">
+                <form wire:submit="setAllLegalMaximum">
+                    <div class="flex flex-wrap -mx-3 mb-6 border border-white py-4">
+                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                            <div>
+                                <label
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    {{ __("legal_maximum_intention") }}
+                                </label>
+                                <input
+                                    class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+                                    type="number"
+                                    wire:model="legal_maximum_intention"
+                                >
+                                @error("legal_maximum_intention")
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                            <div>
+                                <label
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >
+                                    {{ __("legal_maximum_careless") }}
+                                </label>
+                                <input
+                                    class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+                                    type="number"
+                                    wire:model="legal_maximum_careless"
+                                >
+                                @error("legal_maximum_intention")
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <x-app.form.submit />
+                    </div>
+                </form>
+            </div>
+
             <div>
                 <div class="float-end">
                     <a href="/allegation-create/{{$law->id}}">
@@ -147,13 +189,13 @@
                             </td>
                             <td class="text-end">
                                 @if(!empty($a->legal_maximum_intention))
-                                    Vorsatz {{ number_format($a->legal_maximum_intention, 2, ",", ".") }} €
+                                    Vorsatz&nbsp;{{ number_format($a->legal_maximum_intention, 2, ",", ".") }}&nbsp;€
                                 @endif
                                 @if(!empty($a->legal_maximum_intention) &&!empty($a->legal_maximum_careless))
                                     <br>
                                 @endif
                                 @if(!empty($a->legal_maximum_careless))
-                                     {{ number_format($a->legal_maximum_careless, 2, ",", ".") }} €
+                                     {{ number_format($a->legal_maximum_careless, 2, ",", ".") }}&nbsp;€
                                 @endif
                             </td>
                         </tr>
