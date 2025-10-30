@@ -62,6 +62,7 @@ class AllegationForm extends Form
         $this->valid_from = $allegation->valid_from->format("Y-m-d H:m");
         $this->print = $allegation->print;
         $this->infringement_id = $allegation->infringement_id;
+        $this->law_id = $allegation->law_id;
         if(!is_null($allegation->valid_until)) {
             $this->valid_until = $allegation->valid_until->format("Y-m-d H:m");
         }
