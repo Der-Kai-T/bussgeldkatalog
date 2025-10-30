@@ -42,13 +42,19 @@ class LawForm extends Form
         $this->department = $law->department;
         $this->lead_office = $law->lead_office;
         $this->internal_note = $law->internal_note;
-        $this->valid_from = $law->valid_from;
-        $this->valid_until = $law->valid_until;
+        $this->valid_from = $law->valid_from?->format('Y-m-d');
+        $this->valid_until = $law->valid_until?->format('Y-m-d');
     }
 
     public function update()
     {
         $this->validate();
         return $this->law->update($this->except(["law"]));
+    }
+
+    public function create()
+    {
+        $this->validate();
+        return Law::create($this->except(["law"]));
     }
 }

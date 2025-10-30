@@ -39,6 +39,16 @@
 
                     </div>
 
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <x-app.form.input type="date" model="valid_from"/>
+                        </div>
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <x-app.form.input type="date" model="valid_until"/>
+                        </div>
+
+                    </div>
+
                     <x-app.form.submit/>
                     <div>
                         <button
@@ -71,6 +81,12 @@
                 </form>
             </div>
             <div>
+                <div class="float-end">
+                    <a href="/allegation-create/{{$law->id}}">
+                        <span class="fas fa-plus-circle"></span>
+                        neu
+                    </a>
+                </div>
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-200"
                        style="margin-top: 3rem">
                     <thead

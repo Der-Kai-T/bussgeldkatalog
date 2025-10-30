@@ -9,7 +9,7 @@
                 @endif
             </div>
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {{ $law->name }} ({{$law->short}}) Prefix {{ $law->prefix }} - Tatbestand bearbeiten
+                {{ $law->name }} ({{$law->short}}) Prefix {{ $law->prefix }} - Tatbestand anlegen
             </h5>
 
             <div class="mb-4">

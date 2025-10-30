@@ -68,5 +68,6 @@ class ExportController extends Controller
             fclose($handle);
         };
        return response()->stream($callback, 200, $headers);
+
     }
 }

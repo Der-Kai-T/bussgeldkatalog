@@ -9,7 +9,7 @@ use Livewire\Form;
 class AllegationForm extends Form
 {
 //    #[Validate(['required'])]
-//    public $law_id = '';
+    public $law_id = '';
 
     #[Validate(['required'])]
     public $number = '';
@@ -71,5 +71,11 @@ class AllegationForm extends Form
     {
         $this->validate();
         return $this->allegation->update($this->except(["allegation"]));
+    }
+
+    public function create()
+    {
+        $this->validate();
+        return Allegation::create($this->except(["allegation"]));
     }
 }
