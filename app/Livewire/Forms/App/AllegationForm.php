@@ -30,7 +30,11 @@ class AllegationForm extends Form
     public $fine_max = null;
 
     #[Validate(['nullable', 'numeric'])]
-    public $legal_maximum = '';
+    public $legal_maximum_intention = '';
+
+    #[Validate(['nullable', 'numeric'])]
+    public $legal_maximum_careless = '';
+
 
     #[Validate(['required', 'date'])]
     public $valid_from = '';
@@ -39,6 +43,8 @@ class AllegationForm extends Form
     public $valid_until = null;
 
     public $print = true;
+    #[Validate(['nullable', 'exists:infringements,id'])]
+    public $infringement_id = null;
 
     public ?Allegation $allegation = null;
 
@@ -51,9 +57,11 @@ class AllegationForm extends Form
         $this->fine_regular = $allegation->fine_regular;
         $this->fine_min = $allegation->fine_min;
         $this->fine_max = $allegation->fine_max;
-        $this->legal_maximum = $allegation->legal_maximum;
+        $this->legal_maximum_intention = $allegation->legal_maximum_intention;
+        $this->legal_maximum_careless = $allegation->legal_maximum_careless;
         $this->valid_from = $allegation->valid_from->format("Y-m-d H:m");
         $this->print = $allegation->print;
+        $this->infringement_id = $allegation->infringement_id;
         if(!is_null($allegation->valid_until)) {
             $this->valid_until = $allegation->valid_until->format("Y-m-d H:m");
         }

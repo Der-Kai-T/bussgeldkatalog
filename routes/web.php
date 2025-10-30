@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/configurations", \App\Livewire\App\ConfigurationEditor::class)->name("configurations");
 
     Route::get("/catalogue", [\App\Http\Controllers\PDF::class, "generate"])->name("catalogue");
+    Route::get("/export", [\App\Http\Controllers\ExportController::class, "exportCSV"])->name("export");
 
 
     Volt::route('settings/profile', 'settings.profile')->name('profile.edit');

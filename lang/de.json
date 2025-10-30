@@ -79,7 +79,12 @@
     "fine_max": "Bußgeldrahmen max",
     "legal_maximum": "gesetzlicher Höchstbetrag",
     "valid_from": "Gültig ab",
-    "valid_until": "Gültig bis"
+    "valid_until": "Gültig bis",
+    "Cancel": "Abbrechen",
+    "Delete": "Löschen",
+    "legal_maximum_intention": "Höchstbetrag Vorsatz",
+    "legal_maximum_careless": "Höchstbetrag Fahrlässig",
+    "infringement_id": "Verstoß-Art"
 
 
 }

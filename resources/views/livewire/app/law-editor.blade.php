@@ -16,6 +16,10 @@
                 <form class="w-full pb-4" wire:submit="submitForm">
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <div
+                                class="float-end {{ strlen($form->name) > 64 ? "text-red-800" : "" }}">{{ strlen($form->name) }}
+                                Zeichen
+                            </div>
                             <x-app.form.input model="name"/>
                         </div>
                         <div class="w-full md:w-1/2 px-3">
@@ -36,11 +40,39 @@
                     </div>
 
                     <x-app.form.submit/>
+                    <div>
+                        <button
+                            wire:click="$dispatch('openModal', { component: 'app.modal.law-delete',  arguments: { lawid: '{{ $law->id }}' } })"
+                            type="button"
+                            class="
+                        text-white
+                        bg-orange-700
+                        hover:bg-orange-800
+                         focus:ring-4
+                         focus:outline-none
+                         focus:ring-blue-300
+                         font-medium
+                         rounded-lg
+                         text-sm
+                         px-5
+                         py-2.5
+                         text-center
+                         cursor-pointer
+                         dark:bg-orange-700
+                         dark:hover:bg-orange-700
+                         dark:focus:ring-orange-800
+                 ">
+                            <span class="fas fa-trash"></span>
+                            Gesetz löschen
+                        </button>
+                    </div>
+
 
                 </form>
             </div>
             <div>
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-200" style="margin-top: 3rem">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-200"
+                       style="margin-top: 3rem">
                     <thead
                         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-200 sticky top-0">
                     <tr class="sticky top-0">
@@ -57,7 +89,8 @@
                     @foreach($law->allegations->sortBy("number") as $a)
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200 align-text-top ">
                             <td>
-                                <a href="{{ route("allegation", $a->id) }}" wire:navigate class="text-blue-500 hover:text-green-500">
+                                <a href="{{ route("allegation", $a->id) }}" wire:navigate
+                                   class="text-blue-500 hover:text-green-500">
                                     {{ $globalPrefix }}{{ $law->prefix }}{{ $a->number }}
                                 </a>
                             </td>
@@ -70,6 +103,9 @@
                                 </small>
                             </td>
                             <td>
+
+                                {{ $a->infringement?->short }}
+
                                 @if($a->print)
                                     <span class="fas fa-print"></span>
                                 @else
@@ -94,8 +130,14 @@
                                 @endif
                             </td>
                             <td class="text-end">
-                                @if(!empty($a->legal_maximum))
-                                    {{ number_format($a->legal_maximum, 2, ",", ".") }} €
+                                @if(!empty($a->legal_maximum_intention))
+                                    Vorsatz {{ number_format($a->legal_maximum_intention, 2, ",", ".") }} €
+                                @endif
+                                @if(!empty($a->legal_maximum_intention) &&!empty($a->legal_maximum_careless))
+                                    <br>
+                                @endif
+                                @if(!empty($a->legal_maximum_careless))
+                                     {{ number_format($a->legal_maximum_careless, 2, ",", ".") }} €
                                 @endif
                             </td>
                         </tr>

@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<!DOCTYPE html >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark" data-bs-theme="dark">
     <head>
         @include('partials.head')
+
+
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">
     <x-toaster-hub />
@@ -19,6 +21,7 @@
                     <flux:navlist.item icon="circle-stack" :href="route('allegations')" :current="request()->routeIs('allegations')" wire:navigate>{{ __('Allegations') }}</flux:navlist.item>
                     <flux:navlist.item icon="wrench" :href="route('configurations')" :current="request()->routeIs('configurations')" wire:navigate>{{ __('Configuration') }}</flux:navlist.item>
                     <flux:navlist.item icon="document" :href="route('catalogue')" :current="request()->routeIs('catalogue')" >{{ __('Catalogue') }}</flux:navlist.item>
+                    <flux:navlist.item icon="document" :href="route('export')" :current="request()->routeIs('export')" >{{ __('Export') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
@@ -127,6 +130,7 @@
 
         {{ $slot }}
 
+        <livewire:modal />
         @fluxScripts
     </body>
 </html>

@@ -28,7 +28,19 @@
                             </a>
                         </td>
                         <td>{{ $l->short }}</td>
-                        <td>{{ $l->name }}</td>
+                        <td>
+                            {{ $l->name }}
+                            @if(strlen($l->name) > 64)
+                                <span class="contains-tooltip">
+                                    <span class="fas fa-triangle-exclamation text-red-600"></span>
+                                    <div class="tooltip">
+                                        Titel des Gesetztes zu lang, {{ strlen($l->name) }} Zeichen (max. 64
+                                        erlaubt)
+                                    </div>
+                                </span>
+                            @endif
+
+                        </td>
                         <td>{{ $l->allegations->count() }}</td>
                     </tr>
                 @endforeach

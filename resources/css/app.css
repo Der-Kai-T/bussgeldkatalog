@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import '../../vendor/livewire/flux/dist/flux.css';
-
+@import '../../vendor/cloudstudio/laravel-livewire-modal/dist/modal.css';
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
@@ -92,4 +92,30 @@ select:focus[data-flux-control] {
 td, th {
     @apply px-2;
     @apply py-1;
+}
+
+.contains-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+.tooltip {
+    position: absolute;
+    bottom: 125%; /* Tooltip über dem Icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-blue-50);
+    color: #000;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 10;
+}
+.contains-tooltip:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
 }

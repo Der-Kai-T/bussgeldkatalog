@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Allegation extends Model
 {
@@ -13,6 +14,11 @@ class Allegation extends Model
     public function law()
     {
         return $this->belongsTo(Law::class);
+    }
+
+    public function infringement():BelongsTo
+    {
+        return $this->belongsTo(Infringement::class);
     }
 
     protected function casts()
