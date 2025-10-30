@@ -53,11 +53,11 @@ class ExportController extends Controller
                         $allegation->text,
                         $allegation->quote,
                         "",
-                        $allegation->fine_regular,
+                        number_format($allegation->fine_regular ?? 0, 2, ",","."),
                         $allegation->valid_until?->format('Y-m-d'),
                         $allegation->valid_from?->format('Y-m-d'),
-                        $allegation->legal_maximum_intention,
-                        $allegation->legal_maximum_careless,
+                        number_format($allegation->legal_maximum_intention?? 0, 2, ",","."),
+                            number_format($allegation->legal_maximum_careless?? 0, 2, ",","."),
                         $allegation->infringement?->short,
                         "1"
                     ];
