@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
         echo "Password: $password\n";
         $this->call([
             ConfigurationSeeder::class,
+            InfringementSeeder::class,
             LawSeeder::class,
             AllegationSeeder::class,
         ]);

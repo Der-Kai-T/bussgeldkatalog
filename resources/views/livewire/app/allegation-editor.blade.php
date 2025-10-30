@@ -29,9 +29,7 @@
                     </div>
 
                     <div class="flex flex-wrap -mx-3 mb-6">
-                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
-                            <x-app.form.input type="number" model="fine_regular"/>
-                        </div>
+
                         <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                             <x-app.form.input type="number" model="fine_min"/>
                         </div>
@@ -39,7 +37,15 @@
                             <x-app.form.input type="number" model="fine_max"/>
                         </div>
                         <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
-                            <x-app.form.input type="number" model="legal_maximum"/>
+                            <x-app.form.input type="number" model="fine_regular"/>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                            <x-app.form.input type="number" model="legal_maximum_intention"/>
+                        </div>
+                        <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                            <x-app.form.input type="number" model="legal_maximum_careless"/>
                         </div>
                     </div>
 
@@ -60,6 +66,10 @@
                             </div>
 
                         </div>
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <x-app.form.select model="infringement_id" :options="$infringements"/>
+                        </div>
+
                     </div>
 
                     <x-app.form.submit/>

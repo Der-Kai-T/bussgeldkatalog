@@ -5,6 +5,7 @@ namespace App\Livewire\App;
 use App\Livewire\Forms\App\LawForm;
 use App\Models\Configuration;
 use App\Models\Law;
+use Cloudstudio\Modal\LivewireModal;
 use Livewire\Component;
 
 class LawEditor extends Component
