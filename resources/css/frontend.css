@@ -1,0 +1,284 @@
+@import "admin-lte/dist/css/adminlte.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
+@import "datatables.net-select-bs5/css/select.bootstrap5.min.css";
+:root {
+    --bgk-primary: #003063; /* 0%* */
+    --bgk-light: #4d6e92; /* 30% */
+    --bgk-lighter: #8098b1; /* 50% */
+    --bgk-lightest: #b3c1d0; /* 70/ */
+    --bgk-dark: #001832; /* 50% */
+    --bgk-darker: #000e1e; /*70% */
+    --bgk-darkest: #000a14; /* 80% */
+    --primary: var(--bgk-primary);
+    --primary-dark:var(--bgk-dark);
+    --background: #444444; /* 70%*/
+    --background-light: #888888; /* 40% */
+    --text: #fff;
+    --text-muted: #a0a4ac; /*$gray-400*/
+    /* from other templates - todo: replace! */
+    --background-color: var(--background);
+    --default-color: #444444;
+    --heading-color: var(--primary);
+    --accent-color: var(--primary-dark);
+    --bgk-form-invalid: #b33b31;
+    --debug: #ff00ff;
+
+}
+
+
+@font-face {
+    font-family: 'HamburgSans';
+    src: url('fonts/HamburgSans-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HamburgSans';
+    font-style: italic;
+    src: url('fonts/HamburgSans-Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'HamburgSans';
+    font-weight: bold;
+    src: url('fonts/HamburgSans-Bold.woff') format('woff');
+}
+@font-face {
+    font-family: 'HamburgSans';
+    font-style: italic;
+    font-weight: bold;
+    src: url('fonts/HamburgSans-BoldItalic.woff') format('woff');
+}
+
+
+.tr-active td{
+    background-color: var(--background-light)!important;
+}
+
+.tr-hover td{
+    cursor: pointer;
+}
+tr.tr-hover:hover td {
+    background-color: var(--bgk-light)!important;
+    color: black!important;
+}
+
+/* fix fontawesome-icons and bootstrap-icons not matching vertically*/
+.nav-icon.svg-inline--fa {
+    position: relative;
+    top: 5px;
+}
+
+.row + .row
+{
+    margin-top: 1rem;
+}
+
+
+.location-card
+{
+    height: 40vH;
+    overflow:scroll;
+}
+.location-edit-card
+{
+    height: 30vH;
+    overflow:scroll;
+}
+.btn-primary{
+    background-color: var(--bgk-dark)!important;
+    border-color: var(--bgk-dark)!important;
+    color: var(--bgk-lightest)!important;
+}
+.btn-primary:hover{
+    background-color: var(--bgk-darkest)!important;
+    border-color: var(--bgk-dark)!important;
+    color: var(--bgk-lightest)!important;
+}
+
+
+
+.sidebar-back
+{
+
+    padding:0;
+}
+
+.sidebar-back a
+{
+    background-color: var(--bgk-primary);
+    display:block;
+    color: white;
+    text-decoration: none;
+    font-weight:bold;
+}
+.sidebar-back a:hover
+{
+    color: var(--bgk-primary);
+    background-color: white;
+    text-decoration: none;
+
+}
+.sidebar-back-inner
+{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: .5rem;
+}
+
+.user-menu a{
+    border: 1px solid var(--bgk-light) !important;
+}
+
+.user-header
+{
+    min-height: 1rem!important;
+    padding: .5rem!important;
+    background-color: var(--background)!important;
+    color: var(--bgk-light)!important;
+}
+
+.user-footer-flex
+{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.app-header
+{
+    background-color: var(--bgk-dark)!important;
+    color: var(--color-white)!important;
+}
+.nav-link
+{
+    color: var(--bgk-light)!important;
+}
+
+.nav-header{
+    text-transform: uppercase;
+    margin-top: .4rem;
+    background-color: var(--bgk-primary)!important;
+}
+
+.sidebar-menu .nav-item
+{
+    border-left: 4px solid var(--bgk-primary)!important;
+}
+.nav-item.no-border
+{
+    border-left: 4px solid var(--bgk-darkest)!important;
+}
+
+.nav-header.admin
+{
+    background-color: var(--bs-warning)!important;
+    color: var(--bs-black)!important;
+}
+.nav-item.admin
+{
+    border-left: 4px solid var(--bs-warning)!important;
+}
+
+.app-sidebar
+{
+    background-color: var(--bgk-darkest)!important;
+}
+
+.app-footer
+{
+    background-color: var(--bgk-dark)!important;
+    color: var(--bgk-light)!important;
+}
+
+.profile-button
+{
+    border: 1px solid var(--bgk-darkest) !important;
+}
+
+.profile-button:hover
+{
+    background-color: var(--bgk-darkest)!important;
+    color: var(--bgk-light)!important;
+}
+
+.sign-out-button
+{
+    border: 1px solid var(--bs-red) !important;
+}
+
+.sign-out-button:hover
+{
+    background-color: var(--bs-red)!important;
+    color: var(--bgk-light)!important;
+}
+
+.id
+{
+    color: var(--bgk-lightest)!important;
+    background-color: var(--bgk-darkest)!important;
+    font-family: monospace;
+    padding: 0 .25rem;
+
+}
+
+.striped-rows .row:nth-child(odd)
+{
+    background-color: var(--striped-odd)!important;
+}
+
+.striped-rows .row:nth-child(even)
+{
+    background-color: var(--striped-even)!important;
+}
+
+.datatable tbody tr td
+{
+    overflow: hidden;
+
+}
+
+.col-form-label
+{
+    font-weight: bold;
+}
+
+.preview-image
+{
+    width: 8rem;
+
+}
+.preview-image-lg
+{
+    width: fit-content;
+
+}
+
+.copyright
+{
+    color: var(--bgk-light)!important;
+    font-size: .9rem;
+}
+
+label small
+{
+    font-weight: normal!important;
+    color: var(--bgk-light)!important;
+    font-size: .7rem;
+}
+
+input:invalid{
+    border: 1px solid var(--bgk-form-invalid)!important;
+}
+
+.law-quote
+{
+    color: var(--text-muted);
+}
+.law-headline
+{
+    background-color: var(--bgk-light)!important;
+}
