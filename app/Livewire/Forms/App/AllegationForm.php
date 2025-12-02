@@ -43,6 +43,7 @@ class AllegationForm extends Form
     public $valid_until = null;
 
     public $print = true;
+    public $export = true;
     #[Validate(['nullable', 'exists:infringements,id'])]
     public $infringement_id = null;
 
@@ -61,6 +62,7 @@ class AllegationForm extends Form
         $this->legal_maximum_careless = $allegation->legal_maximum_careless;
         $this->valid_from = $allegation->valid_from->format("Y-m-d H:m");
         $this->print = $allegation->print;
+        $this->export = $allegation->export;
         $this->infringement_id = $allegation->infringement_id;
         $this->law_id = $allegation->law_id;
         if(!is_null($allegation->valid_until)) {

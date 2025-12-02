@@ -1,9 +1,11 @@
+@import 'tailwindcss';
 @import "admin-lte/dist/css/adminlte.css";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
 @import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
 @import "datatables.net-select-bs5/css/select.bootstrap5.min.css";
+@import '../../vendor/cloudstudio/laravel-livewire-modal/dist/modal.css';
 :root {
     --bgk-primary: #003063; /* 0%* */
     --bgk-light: #4d6e92; /* 30% */
@@ -281,4 +283,27 @@ input:invalid{
 .law-headline
 {
     background-color: var(--bgk-light)!important;
+}
+
+.icon-disabled
+{
+    color: var(--bgk-light)!important;
+}
+.icon-disabled-slash
+{
+    color: red;
+    font-weight: bold;
+}
+
+
+.tr-active td{
+    background-color: var(--primary)!important;
+}
+
+.tr-hover td{
+    cursor: pointer;
+}
+tr.tr-hover:hover td {
+    background-color: var(--bgk-light)!important;
+    color: black!important;
 }

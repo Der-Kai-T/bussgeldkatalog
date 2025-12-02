@@ -23,6 +23,7 @@
 
     <x-app.layout.sidebar/>
     <x-toaster-hub />
+    <livewire:modal />
 
     <main class="app-main">
         <div class="app-content-header">

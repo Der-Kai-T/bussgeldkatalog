@@ -27,6 +27,7 @@ class Allegation extends Model
             'valid_from' => 'datetime',
             'valid_until' => 'datetime',
             'print' => 'bool',
+            'export' => 'bool',
         ];
     }
 }

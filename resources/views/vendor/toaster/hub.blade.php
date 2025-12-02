@@ -1,4 +1,4 @@
-<div role="status" id="toaster" x-data="toasterHub(@js($toasts), @js($config))" @class([
+<div style="z-index: 9999" role="status" id="toaster" x-data="toasterHub(@js($toasts), @js($config))" @class([
     'fixed z-50 p-4 w-full flex flex-col pointer-events-none sm:p-6',
     'bottom-0' => $alignment->is('bottom'),
     'top-1/2 -translate-y-1/2' => $alignment->is('middle'),

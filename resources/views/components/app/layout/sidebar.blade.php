@@ -45,6 +45,13 @@
                         icon="fas fa-gavel"
 
                     />
+                    <x-app.layout.sidebar.item
+                        text="Rechtsbereiche"
+                        icon="fas fa-scale-balanced"
+                        route="legal-fields"
+
+                    />
+
 
                     <x-app.layout.sidebar.item
                         text="Gesetze"
@@ -94,6 +101,14 @@
                         icon="fas fa-wrench"
                         route="configurations"
 {{--                        can="admin.system.convention"--}}
+                    />
+
+                    <x-app.layout.sidebar.item
+                        class="admin"
+                        text="Benutzerverwaltung"
+                        icon="fas fa-user"
+                        route="admin.users"
+                        {{--                        can="admin.system.convention"--}}
                     />
 
 
